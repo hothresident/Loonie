@@ -11,15 +11,15 @@ namespace Test.Translation.Services
     public class QifParserShould
     {
         [TestMethod]
-        public void qifParserShouldReadInDiscoverFile()
+        public void qifParserShouldReadInCcdFile()
         {
-            var target = QifParser.Parse("Artifacts/discover.qfx");
+            var target = QifParser.Parse("Artifacts/ccd.qfx");
             target.ShouldNotBeNull();
 
             var firstResult = target.FirstOrDefault();
 
             firstResult.Amount.ShouldEqual(29.84m);
-            firstResult.Description.ShouldEqual("WAL-MART SC - #2702 NIXA MO");
+            firstResult.Description.ShouldEqual("TACO-MART SC - #7896");
             firstResult.Date.ShouldEqual(new DateTime(2017, 05, 17));
             firstResult.Type.ShouldEqual(TransactionType.Credit);
         }
@@ -32,22 +32,22 @@ namespace Test.Translation.Services
 
             var firstResult = target.FirstOrDefault();
 
-            firstResult.Amount.ShouldEqual(1755.41m);
-            firstResult.Description.ShouldEqual("Work-109ME Bat");
+            firstResult.Amount.ShouldEqual(1500.41M);
+            firstResult.Description.ShouldEqual("Work-309lo Bat");
             firstResult.Date.ShouldEqual(new DateTime(2017, 04, 21));
             firstResult.Type.ShouldEqual(TransactionType.Dep);
         }
 
         [TestMethod]
-        public void qifParserShouldReadInVisaFile()
+        public void qifParserShouldReadInCcvFile()
         {
-            var target = QifParser.Parse("Artifacts/visa.QFX");
+            var target = QifParser.Parse("Artifacts/ccv.QFX");
             target.ShouldNotBeNull();
 
             var firstResult = target.FirstOrDefault();
 
             firstResult.Amount.ShouldEqual(-50.65m);
-            firstResult.Description.ShouldEqual("WAL-MART #2702           NI");
+            firstResult.Description.ShouldEqual("WAL-MART #9999           GI");
             firstResult.Date.ShouldEqual(new DateTime(2017, 05, 14));
             firstResult.Type.ShouldEqual(TransactionType.Debit);
         }
