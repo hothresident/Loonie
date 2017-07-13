@@ -19,7 +19,7 @@ namespace Test.Translation.Services
             var firstResult = target.FirstOrDefault();
 
             firstResult.Amount.ShouldEqual(29.84m);
-            firstResult.Description.ShouldEqual("TACO-MART SC - #7896");
+            firstResult.Memo.ShouldEqual("TACO-MART SC - #7896");
             firstResult.Date.ShouldEqual(new DateTime(2017, 05, 17));
             firstResult.Type.ShouldEqual(TransactionType.Credit);
         }
@@ -33,7 +33,7 @@ namespace Test.Translation.Services
             var firstResult = target.FirstOrDefault();
 
             firstResult.Amount.ShouldEqual(1500.41M);
-            firstResult.Description.ShouldEqual("Work-309lo Bat");
+            firstResult.Memo.ShouldEqual("Work-309lo Bat");
             firstResult.Date.ShouldEqual(new DateTime(2017, 04, 21));
             firstResult.Type.ShouldEqual(TransactionType.Dep);
         }
@@ -47,7 +47,7 @@ namespace Test.Translation.Services
             var firstResult = target.FirstOrDefault();
 
             firstResult.Amount.ShouldEqual(-50.65m);
-            firstResult.Description.ShouldEqual("WAL-MART #9999           GI");
+            firstResult.Memo.ShouldEqual("WAL-MART #9999           GI");
             firstResult.Date.ShouldEqual(new DateTime(2017, 05, 14));
             firstResult.Type.ShouldEqual(TransactionType.Debit);
         }

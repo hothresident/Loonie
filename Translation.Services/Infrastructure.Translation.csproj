@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{31F0330D-2BFF-490C-9464-4F9DBD074AF8}</ProjectGuid>
+    <ProjectGuid>{87375262-1BCC-4CC5-AD40-FD81579EB76F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain.Services</RootNamespace>
-    <AssemblyName>Domain.Services</AssemblyName>
+    <RootNamespace>Translation.Services</RootNamespace>
+    <AssemblyName>Translation.Services</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,22 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IAdapter.cs" />
-    <Compile Include="Interfaces\IMapper.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Provider.cs" />
+    <Compile Include="Adapter.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="Parsers\QifParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Domain\Core.Domain.csproj">
-      <Project>{c588c044-2896-42a9-b90b-b9340a742165}</Project>
+      <Project>{C588C044-2896-42A9-B90B-B9340A742165}</Project>
       <Name>Core.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj">
+      <Project>{31f0330d-2bff-490c-9464-4f9dbd074af8}</Project>
+      <Name>Domain.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

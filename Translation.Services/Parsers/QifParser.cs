@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Translation.Services.Parsers
@@ -21,7 +22,7 @@ namespace Translation.Services.Parsers
             return records.Select(r => new Transaction
             {
                 Amount = decimal.Parse(r.Parse("TRNAMT")),
-                Description = r.Parse("NAME").Trim(),
+                Memo = r.Parse("NAME").Trim(),
                 Type = (TransactionType)Enum.Parse(typeof(TransactionType), r.Parse("TRNTYPE").ToTitleCase()),
                 Date = r.Parse("DTPOSTED").ParseDate()
             });

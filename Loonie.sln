@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Domain", "Core.Domain\Core.Domain.csproj", "{C588C044-2896-42A9-B90B-B9340A742165}"
 EndProject
@@ -23,11 +23,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Presentation", "4-Present
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{846A2C1D-FF39-44A4-B2ED-9BA90C4D2A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database.Services", "Database\Database.Services.csproj", "{2426A424-0424-4DA4-9B8C-DE742369E543}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Database", "Database\Infrastructure.Database.csproj", "{2426A424-0424-4DA4-9B8C-DE742369E543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translation.Services", "Translation.Services\Translation.Services.csproj", "{87375262-1BCC-4CC5-AD40-FD81579EB76F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Translation", "Translation.Services\Infrastructure.Translation.csproj", "{87375262-1BCC-4CC5-AD40-FD81579EB76F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Translation.Services", "Test.Translation.Services\Test.Translation.Services.csproj", "{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Translation.Test", "Test.Translation.Services\Infrastructure.Translation.Test.csproj", "{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loonie", "Earcast\Loonie.csproj", "{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Earcast.Test", "Test.Earcast\Earcast.Test.csproj", "{A7B1ECE5-5C5A-4ADE-BC5C-73CCC4F741FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Common.Test", "Infrastructure.Common.Test\Infrastructure.Common.Test.csproj", "{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Common", "Infrastructure.Common\Infrastructure.Common.csproj", "{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +63,22 @@ Global
 		{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B1ECE5-5C5A-4ADE-BC5C-73CCC4F741FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B1ECE5-5C5A-4ADE-BC5C-73CCC4F741FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B1ECE5-5C5A-4ADE-BC5C-73CCC4F741FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B1ECE5-5C5A-4ADE-BC5C-73CCC4F741FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +93,9 @@ Global
 		{2426A424-0424-4DA4-9B8C-DE742369E543} = {ADC36788-31C8-410B-95FD-76229DFE7026}
 		{87375262-1BCC-4CC5-AD40-FD81579EB76F} = {ADC36788-31C8-410B-95FD-76229DFE7026}
 		{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C} = {D0B7B882-9257-41DC-8A9A-86CF0E338734}
+		{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62} = {B24C786E-CDB6-4C74-9041-2025316B47FF}
+		{A7B1ECE5-5C5A-4ADE-BC5C-73CCC4F741FA} = {846A2C1D-FF39-44A4-B2ED-9BA90C4D2A28}
+		{DDC88975-8E9A-4C20-8D5D-79C0B765CE46} = {D0B7B882-9257-41DC-8A9A-86CF0E338734}
+		{C97F966F-FA81-41D8-82C8-E7ACE2A386C4} = {ADC36788-31C8-410B-95FD-76229DFE7026}
 	EndGlobalSection
 EndGlobal

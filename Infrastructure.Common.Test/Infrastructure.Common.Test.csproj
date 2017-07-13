@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C}</ProjectGuid>
+    <ProjectGuid>{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Test.Translation.Services</RootNamespace>
-    <AssemblyName>Test.Translation.Services</AssemblyName>
+    <RootNamespace>Infrastructure.Common.Test</RootNamespace>
+    <AssemblyName>Infrastructure.Common.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -47,33 +47,31 @@
     <Reference Include="Should, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap, Version=4.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.4.5\lib\net45\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="QifParserShould.cs" />
+    <Compile Include="EarcastRegistryShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Artifacts\ccd.qfx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Artifacts\ccv.qfx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Artifacts\history.qfx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Domain\Core.Domain.csproj">
-      <Project>{C588C044-2896-42A9-B90B-B9340A742165}</Project>
-      <Name>Core.Domain</Name>
+    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj">
+      <Project>{31F0330D-2BFF-490C-9464-4F9DBD074AF8}</Project>
+      <Name>Domain.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Translation.Services\Translation.Services.csproj">
-      <Project>{87375262-1bcc-4cc5-ad40-fd81579eb76f}</Project>
-      <Name>Translation.Services</Name>
+    <ProjectReference Include="..\Infrastructure.Common\Infrastructure.Common.csproj">
+      <Project>{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}</Project>
+      <Name>Infrastructure.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Translation.Services\Infrastructure.Translation.csproj">
+      <Project>{87375262-1BCC-4CC5-AD40-FD81579EB76F}</Project>
+      <Name>Infrastructure.Translation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

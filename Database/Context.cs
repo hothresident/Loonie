@@ -1,11 +1,11 @@
-﻿using Core.Domain.Models;
+﻿using Database.Models;
 using System.Data.Entity;
 
 namespace Database.Services
 {
     public class Context : DbContext
     {
-        public Context() : base()
+        public Context() : base("conn")
         {
         }
 
