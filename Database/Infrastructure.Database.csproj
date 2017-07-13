@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="LoonieModel.cs" />
+    <Compile Include="LoonieContext.cs" />
     <Compile Include="Models\TransactionProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />

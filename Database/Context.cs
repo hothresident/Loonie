@@ -9,6 +9,6 @@ namespace Database.Services
         {
         }
 
-        public DbSet<Transaction> Transacations { get; set; }
+        //public DbSet<Transaction> Transacations { get; set; }
     }
 }

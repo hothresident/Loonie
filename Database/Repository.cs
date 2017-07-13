@@ -1,14 +1,12 @@
-﻿using Database.Services;
-using Domain.Services.Interfaces;
+﻿using Domain.Services.Interfaces;
 using System.Collections.Generic;
-using System;
 using Database.Models;
 
 namespace Database
 {
     public class Repository : IRepository
     {
-        private Context _context = new Context();
+        private LoonieContext _context = new LoonieContext();
         private readonly IMapper _mapper;
 
         public Repository(IMapper mapper)
@@ -24,7 +22,7 @@ namespace Database
 
         public void Save(IEnumerable<Core.Domain.Models.Transaction> transactions)
         {
-            _context.Transacations.AddRange(_mapper.Map<IEnumerable<Transaction>>(transactions));
+            _context.Transactions.AddRange(_mapper.Map<IEnumerable<Transaction>>(transactions));
             _context.SaveChangesAsync();
         }
     }

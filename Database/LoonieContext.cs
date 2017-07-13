@@ -3,9 +3,9 @@ using Database.Models;
 
 namespace Database
 {
-    public partial class LoonieModel : DbContext
+    public partial class LoonieContext : DbContext
     {
-        public LoonieModel()
+        public LoonieContext()
             : base("name=LoonieConnection")
         {
         }
