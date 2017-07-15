@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Core.Domain.Enums;
+using Infrastructure.Translation.Parsers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Should;
-using Translation.Services.Parsers;
+using System;
 using System.Linq;
-using Core.Domain.Enums;
 
 namespace Test.Translation.Services
 {

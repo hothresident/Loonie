@@ -4,10 +4,10 @@ namespace Domain.Services
 {
     public class Provider
     {
-        IAdapter _adapter;
+        ITranslationFacade _adapter;
         IRepository _repository;
 
-        public Provider(IAdapter adapter, IRepository repository)
+        public Provider(ITranslationFacade adapter, IRepository repository)
         {
             _adapter = adapter;
             _repository = repository;

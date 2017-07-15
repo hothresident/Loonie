@@ -1,7 +1,7 @@
 using System.Data.Entity;
 using Database.Models;
 
-namespace Database
+namespace Infrastructure.Database
 {
     public partial class LoonieContext : DbContext
     {

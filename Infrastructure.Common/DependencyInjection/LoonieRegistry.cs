@@ -8,7 +8,7 @@ namespace Infrastructure.Common.DependencyInjection
         public LoonieRegistry()
         {
             For<IMapper>().Singleton().Use(c => BuildMapper(c));
-            //c.For<IAdapter>().Use<Adapter>();
+            //c.For<ITranslationFacade>().Use<Adapter>();
             //c.For<IRepository>().Use<Repository>();
 
             Scan(x =>

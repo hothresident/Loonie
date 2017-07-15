@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Infrastructure.Common.DependencyInjection;
+using Infrastructure.Translation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StructureMap;
-using Domain.Services.Interfaces;
 using Should;
-using Translation.Services;
-using Infrastructure.Common.DependencyInjection;
+using StructureMap;
 
 namespace Infrastructure.Common.Test
 {
@@ -16,8 +14,8 @@ namespace Infrastructure.Common.Test
         [TestMethod]
         public void registry_resolves_types()
         {
-            _target.GetInstance<IAdapter>()
-                .ShouldBeType<Adapter>();
+            _target.GetInstance<Translation.ITranslationFacade>()
+                .ShouldBeType<TranslationFacade>();
         }
     }
 }

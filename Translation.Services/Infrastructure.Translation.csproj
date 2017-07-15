@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapter.cs" />
+    <Compile Include="TranslationFacade.cs" />
     <Compile Include="FileReader.cs" />
+    <Compile Include="ITranslationFacade.cs" />
     <Compile Include="Parsers\QifParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -49,10 +50,6 @@
     <ProjectReference Include="..\Core.Domain\Core.Domain.csproj">
       <Project>{C588C044-2896-42A9-B90B-B9340A742165}</Project>
       <Name>Core.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj">
-      <Project>{31f0330d-2bff-490c-9464-4f9dbd074af8}</Project>
-      <Name>Domain.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

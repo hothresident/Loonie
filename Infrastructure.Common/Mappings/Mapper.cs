@@ -1,6 +1,4 @@
-﻿using Domain.Services.Interfaces;
-
-namespace Infrastructure.Common.Mappings
+﻿namespace Infrastructure.Common.Mappings
 {
     public class Mapper : IMapper
     {

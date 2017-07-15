@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepository.cs" />
     <Compile Include="LoonieContext.cs" />
     <Compile Include="Models\TransactionProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,9 +69,9 @@
       <Project>{c588c044-2896-42a9-b90b-b9340a742165}</Project>
       <Name>Core.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj">
-      <Project>{31F0330D-2BFF-490C-9464-4F9DBD074AF8}</Project>
-      <Name>Domain.Services</Name>
+    <ProjectReference Include="..\Infrastructure.Common\Infrastructure.Common.csproj">
+      <Project>{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}</Project>
+      <Name>Infrastructure.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

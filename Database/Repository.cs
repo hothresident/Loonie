@@ -1,12 +1,10 @@
 ﻿using Database.Models;
-using Domain.Services.Interfaces;
+using Infrastructure.Common.Mappings;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
-using System;
-using System.Linq;
 
-namespace Database
+namespace Infrastructure.Database
 {
     public class Repository : IRepository
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Domain.Services.Interfaces
+namespace Infrastructure.Translation
 {
     public interface ITranslationFacade
     {

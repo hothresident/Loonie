@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DependencyInjection\Dependencies.cs" />
     <Compile Include="DependencyInjection\LoonieRegistry.cs" />
+    <Compile Include="Mappings\IMapper.cs" />
     <Compile Include="Mappings\Mapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,10 +59,6 @@
     <ProjectReference Include="..\Core.Domain\Core.Domain.csproj">
       <Project>{c588c044-2896-42a9-b90b-b9340a742165}</Project>
       <Name>Core.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj">
-      <Project>{31f0330d-2bff-490c-9464-4f9dbd074af8}</Project>
-      <Name>Domain.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

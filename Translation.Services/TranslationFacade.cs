@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Core.Domain.Models;
+using Infrastructure.Translation.Parsers;
 using System.Collections.Generic;
-using Core.Domain.Models;
-using Domain.Services.Interfaces;
-using Translation.Services.Parsers;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace Translation.Services
+namespace Infrastructure.Translation
 {
-    public class Adapter : IAdapter
+    public class TranslationFacade : ITranslationFacade
     {
         public async Task<List<Transaction>> ParseFileAsync(string path, int index)
         {

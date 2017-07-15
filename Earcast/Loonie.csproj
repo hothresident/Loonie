@@ -120,16 +120,12 @@
       <Project>{2426A424-0424-4DA4-9B8C-DE742369E543}</Project>
       <Name>Infrastructure.Database</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Services\Domain.Services.csproj">
-      <Project>{31f0330d-2bff-490c-9464-4f9dbd074af8}</Project>
-      <Name>Domain.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.Common\Infrastructure.Common.csproj">
       <Project>{c97f966f-fa81-41d8-82c8-e7ace2a386c4}</Project>
       <Name>Infrastructure.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Translation.Services\Infrastructure.Translation.csproj">
-      <Project>{87375262-1BCC-4CC5-AD40-FD81579EB76F}</Project>
+      <Project>{87375262-1bcc-4cc5-ad40-fd81579eb76f}</Project>
       <Name>Infrastructure.Translation</Name>
     </ProjectReference>
   </ItemGroup>

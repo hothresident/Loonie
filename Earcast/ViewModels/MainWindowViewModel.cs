@@ -1,7 +1,7 @@
 ﻿using Core.Domain.Models;
-using Domain.Services.Interfaces;
-using System.Collections;
-using System.Collections.Generic;
+using Infrastructure.Common.Mappings;
+using Infrastructure.Database;
+using Infrastructure.Translation;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace Loonie.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        private IAdapter _adapter;
+        private ITranslationFacade _adapter;
         private IMapper _mapper;
         private IRepository _repository;
         private BindableBase _CurrentViewModel;
@@ -42,7 +42,7 @@ namespace Loonie.ViewModels
 
         public MainWindowViewModel()
         {
-            _adapter = ContainerHelper.Container.GetInstance<IAdapter>();
+            _adapter = ContainerHelper.Container.GetInstance<ITranslationFacade>();
             _repository = ContainerHelper.Container.GetInstance<IRepository>();
             //_mapper = ContainerHelper.Container.GetInstance<IMapper>();
 
