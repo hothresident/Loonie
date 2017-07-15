@@ -49,23 +49,32 @@ namespace Loonie.ViewModels
             NavCommand = new RelayCommand<string>(OnNav);
             ExitCommand = new RelayCommand(OnExit, CanExit);
             ImportCommand = new RelayCommand(OnImport);
-            SaveCommand = new RelayCommand(OnSave);
+            SaveCommand = new RelayCommand(OnSaveAsync);
+
+            Refresh();
+        }
+
+        private async void Refresh()
+        {
+            Transactions = new ObservableCollection<Transaction>(await _repository.GetAsync());
         }
 
         private async Task ImportAsync()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject())) return;
 
-            Transactions = new ObservableCollection<Transaction>(await _adapter.ParseFileAsync(@"c:\ccd.qfx"));
+            var databaseTransactionIndex = await _repository.GetTransactionIndexAsync();
+            Transactions = new ObservableCollection<Transaction>(await _adapter.ParseFileAsync(@"c:\discover.qfx", databaseTransactionIndex));
         }
 
         public RelayCommand ExitCommand { get; private set; }
         public RelayCommand ImportCommand { get; private set; }
         public RelayCommand SaveCommand { get; private set; }
 
-        private void OnSave()
+        private async void OnSaveAsync()
         {
-            _repository.Save(Transactions);
+            await _repository.Save(Transactions);
+            Refresh();
         }
 
         private async void OnImport()
@@ -82,6 +91,7 @@ namespace Loonie.ViewModels
         {
             Application.Current.Shutdown();
         }
+
         public ObservableCollection<Transaction> Transactions
         {
             get

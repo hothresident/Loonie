@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context.cs" />
     <Compile Include="LoonieContext.cs" />
     <Compile Include="Models\TransactionProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

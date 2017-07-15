@@ -1,6 +1,10 @@
-﻿using Domain.Services.Interfaces;
+﻿using Database.Models;
+using Domain.Services.Interfaces;
 using System.Collections.Generic;
-using Database.Models;
+using System.Data.Entity;
+using System.Threading.Tasks;
+using System;
+using System.Linq;
 
 namespace Database
 {
@@ -13,17 +17,21 @@ namespace Database
         {
             _mapper = mapper;
         }
-        //public void Save(IEnumerable<Transaction> transactions)
-        //{
-        //    _context.Transacations.AddRange(transactions);
-        //    _context.SaveChangesAsync();
-        //    //_context.SaveChanges();
-        //}
 
-        public void Save(IEnumerable<Core.Domain.Models.Transaction> transactions)
+        public async Task Save(IEnumerable<Core.Domain.Models.Transaction> transactions)
         {
             _context.Transactions.AddRange(_mapper.Map<IEnumerable<Transaction>>(transactions));
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<Core.Domain.Models.Transaction>> GetAsync()
+        {
+            return _mapper.Map<List<Core.Domain.Models.Transaction>>(await _context.Transactions.ToListAsync());
+        }
+
+        public async Task<int> GetTransactionIndexAsync()
+        {
+            return await _context.Transactions.MaxAsync(t => t.Id);
         }
     }
 }

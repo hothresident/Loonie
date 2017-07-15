@@ -6,6 +6,6 @@ namespace Domain.Services.Interfaces
 {
     public interface IAdapter
     {
-        Task<IEnumerable<Transaction>> ParseFileAsync(string path);
+        Task<List<Transaction>> ParseFileAsync(string path, int index);
     }
 }
