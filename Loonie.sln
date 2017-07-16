@@ -9,27 +9,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- Core", "1- Core", "{5323
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F7E7B8FA-0B9F-4EC0-9C78-27A34193679C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infrastructure", "3-Infrastructure", "{ADC36788-31C8-410B-95FD-76229DFE7026}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{ADC36788-31C8-410B-95FD-76229DFE7026}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{D0B7B882-9257-41DC-8A9A-86CF0E338734}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Presentation", "4-Presentation", "{B24C786E-CDB6-4C74-9041-2025316B47FF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Presentation", "3 - Presentation", "{B24C786E-CDB6-4C74-9041-2025316B47FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{846A2C1D-FF39-44A4-B2ED-9BA90C4D2A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Database", "Database\Infrastructure.Database.csproj", "{2426A424-0424-4DA4-9B8C-DE742369E543}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Database", "Services.Database\Services.Database.csproj", "{2426A424-0424-4DA4-9B8C-DE742369E543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Translation", "Translation.Services\Infrastructure.Translation.csproj", "{87375262-1BCC-4CC5-AD40-FD81579EB76F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Translation", "Services.Translation\Services.Translation.csproj", "{87375262-1BCC-4CC5-AD40-FD81579EB76F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Translation.Test", "Test.Translation.Services\Infrastructure.Translation.Test.csproj", "{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Translation.Test", "Services.Translation.Test\Services.Translation.Test.csproj", "{9026E442-D9A9-4B76-B7D6-69D8FD59FD9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loonie", "Earcast\Loonie.csproj", "{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loonie", "Loonie\Loonie.csproj", "{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Earcast.Test", "Test.Earcast\Earcast.Test.csproj", "{A7B1ECE5-5C5A-4ADE-BC5C-73CCC4F741FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loonie.Test", "Loonie.Test\Loonie.Test.csproj", "{A7B1ECE5-5C5A-4ADE-BC5C-73CCC4F741FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Common.Test", "Infrastructure.Common.Test\Infrastructure.Common.Test.csproj", "{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Common.Test", "Services.Common.Test\Services.Common.Test.csproj", "{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Common", "Infrastructure.Common\Infrastructure.Common.csproj", "{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Common", "Services.Common\Services.Common.csproj", "{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
