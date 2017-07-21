@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E7A6BCD7-BE7F-406F-81FB-2A354F4E6E62}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Earcast</RootNamespace>
-    <AssemblyName>Earcast</AssemblyName>
+    <RootNamespace>Loonie</RootNamespace>
+    <AssemblyName>Loonie</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -46,6 +46,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,10 +66,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Accounts\AccountView.xaml.cs">
+      <DependentUpon>AccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\AccountViewModel.cs" />
     <Compile Include="BindableBase.cs" />
+    <Compile Include="Categories\CategoryView.xaml.cs">
+      <DependentUpon>CategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Categories\CategoryViewModel.cs" />
     <Compile Include="ContainerHelper.cs" />
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="ExpandedTransactions\ExpandedTransactionView.xaml.cs">
+      <DependentUpon>ExpandedTransactionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExpandedTransactions\ExpandedTransactionViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="Transactions\TransactionView.xaml.cs">
+      <DependentUpon>TransactionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\TransactionViewModel.cs" />
+    <Page Include="Accounts\AccountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Categories\CategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExpandedTransactions\ExpandedTransactionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,6 +111,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Transactions\TransactionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -124,13 +158,15 @@
       <Project>{c97f966f-fa81-41d8-82c8-e7ace2a386c4}</Project>
       <Name>Services.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Services.Main\Services.Main.csproj">
+      <Project>{3322C8BF-90D1-478F-9A00-DF07116A8D60}</Project>
+      <Name>Services.Main</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services.Translation\Services.Translation.csproj">
       <Project>{87375262-1bcc-4cc5-ad40-fd81579eb76f}</Project>
       <Name>Services.Translation</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

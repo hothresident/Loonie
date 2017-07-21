@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Loonie.ViewModels
+namespace Loonie
 {
     public class RelayCommand : ICommand
     {
