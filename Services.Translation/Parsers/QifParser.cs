@@ -17,8 +17,11 @@ namespace Infrastructure.Translation.Parsers
             var records = file.Substring(file.IndexOf("<STMTTRN>"))
                 .Split(new string[] { "<STMTTRN>" }, System.StringSplitOptions.RemoveEmptyEntries);
 
+            var accountId = file.Parse("ACCTID").Trim();
+
             return records.Select(r => new Transaction
             {
+                AccountId = accountId,
                 Amount = decimal.Parse(r.Parse("TRNAMT")),
                 Memo = r.Parse("NAME").Trim(),
                 Type = (TransactionType)Enum.Parse(typeof(TransactionType), r.Parse("TRNTYPE").ToTitleCase()),

@@ -18,6 +18,7 @@ namespace Test.Translation.Services
 
             var firstResult = target.FirstOrDefault();
 
+            firstResult.AccountId.ShouldEqual("654XXXXXX");
             firstResult.Amount.ShouldEqual(29.84m);
             firstResult.Memo.ShouldEqual("TACO-MART SC - #7896");
             firstResult.Date.ShouldEqual(new DateTime(2017, 05, 17));

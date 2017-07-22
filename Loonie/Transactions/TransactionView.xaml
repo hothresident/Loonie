@@ -7,22 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <DockPanel LastChildFill="True">
-            <Menu IsMainMenu="True" DockPanel.Dock="Top">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_Import" 
-                              Command="{Binding ImportCommand}" />
-                    <MenuItem Header="_Save"
-                              Command="{Binding SaveCommand}" />
-                    <Separator />
-                    <MenuItem Header="_Exit" 
-                              Command="{Binding ExitCommand}" />
-                </MenuItem>
-            </Menu>
-
-            <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--<DockPanel LastChildFill="True">-->
+            <Grid x:Name="NavBar">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Content="Import"
+                    Command="{Binding ImportCommand}"
+                    CommandParameter="import"
+                    Grid.Column="0" />
+                <Button Content="Save"
+                    Command="{Binding SaveCommand}"
+                    CommandParameter="save"
+                    Grid.Column="1" />
+            </Grid>
+            <Grid Grid.Row="1">
                 <DataGrid x:Name="dataGrid"  Grid.Column="1" ItemsSource="{Binding Transactions}"/>
             </Grid>
-        </DockPanel>
+        <!--</DockPanel>-->
     </Grid>
 </UserControl>

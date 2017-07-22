@@ -33,9 +33,17 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid x:Name="NavBar">
+        <Grid x:Name="Menu">
+            <Menu IsMainMenu="True" DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Exit" Command="{Binding ExitCommand}" />
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Grid x:Name="NavBar" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -55,7 +63,7 @@
                     Grid.Column="2" />
         </Grid>
         <Grid x:Name="MainContent"
-              Grid.Row="1">
+              Grid.Row="2">
             <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>
     </Grid>
