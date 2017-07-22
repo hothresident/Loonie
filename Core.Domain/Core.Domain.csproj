@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Enums\TransactionType.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ExpandedTransaction.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
