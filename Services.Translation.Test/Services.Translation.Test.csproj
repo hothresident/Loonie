@@ -71,6 +71,10 @@
       <Project>{C588C044-2896-42A9-B90B-B9340A742165}</Project>
       <Name>Core.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Services.Database\Services.Database.csproj">
+      <Project>{2426A424-0424-4DA4-9B8C-DE742369E543}</Project>
+      <Name>Services.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services.Translation\Services.Translation.csproj">
       <Project>{87375262-1bcc-4cc5-ad40-fd81579eb76f}</Project>
       <Name>Services.Translation</Name>

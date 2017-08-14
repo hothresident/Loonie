@@ -1,4 +1,4 @@
-﻿using Core.Domain.Models;
+﻿using Database.Models;
 using Infrastructure.Translation.Parsers;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +8,22 @@ namespace Infrastructure.Translation
 {
     public class TranslationFacade : ITranslationFacade
     {
-        public async Task<List<Transaction>> ParseFileAsync(string path, int index)
+        public async Task<Account> ParseFileAsync(string path, int index)
         {
-            return await Task.Run(() => SetTransactionIds(QifParser.Parse(path).ToList(), index));
+            var account = QifParser.Parse(path);
+
+            return await Task.Run(() => SetTransactionIds(QifParser.Parse(path), index));
         }
 
-        private List<Transaction> SetTransactionIds(List<Transaction> transactions, int index)
+        private Account SetTransactionIds(Account account, int index)
         {
-            for (int i = 0; i < transactions.Count; i++)
+            for (int i = 0; i < account.Transactions.Count(); i++)
             {
                 index += 1;
-                transactions[i].Id = index;
+                account.Transactions[i].Id = index;
             }
 
-            return transactions;
+            return account;
         }
     }
 }

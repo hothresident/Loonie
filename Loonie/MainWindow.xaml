@@ -3,26 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:trans="clr-namespace:Loonie.Transactions"
+        xmlns:main="clr-namespace:Loonie.Main"
+        xmlns:import="clr-namespace:Loonie.Import"
         xmlns:expand="clr-namespace:Loonie.ExpandedTransactions"
         xmlns:cat="clr-namespace:Loonie.Categories"
-        xmlns:acct="clr-namespace:Loonie.Accounts"
         xmlns:local="clr-namespace:Loonie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="600">
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type trans:TransactionViewModel}">
-            <trans:TransactionView />
+        <DataTemplate DataType="{x:Type main:MainViewModel}">
+            <main:MainView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type expand:ExpandedTransactionViewModel}">
+        <!--<DataTemplate DataType="{x:Type expand:ExpandedTransactionViewModel}">
             <expand:ExpandedTransactionView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type cat:CategoryViewModel}">
+        </DataTemplate>-->
+        <!--<DataTemplate DataType="{x:Type cat:CategoryViewModel}">
             <cat:CategoryView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type acct:AccountViewModel}">
-            <acct:AccountView />
+        </DataTemplate>-->
+        <DataTemplate DataType="{x:Type import:ImportViewModel}">
+            <import:ImportView />
         </DataTemplate>
     </Window.Resources>
     
@@ -33,17 +33,19 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid x:Name="Menu">
+        <Grid x:Name="Menu" Grid.Row="0">
             <Menu IsMainMenu="True" DockPanel.Dock="Top">
                 <MenuItem Header="_File">
+                    <MenuItem Header="_Import" Command="{Binding NavCommand}"
+                              CommandParameter="import"/>
+                    <MenuItem Header="_Save" Command="{Binding SaveCommand}" />
                     <MenuItem Header="_Exit" Command="{Binding ExitCommand}" />
                 </MenuItem>
             </Menu>
         </Grid>
-        <Grid x:Name="NavBar" Grid.Row="1">
+        <!--<Grid x:Name="NavBar" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -61,9 +63,8 @@
                     Command="{Binding NavCommand}"
                     CommandParameter="categories"
                     Grid.Column="2" />
-        </Grid>
-        <Grid x:Name="MainContent"
-              Grid.Row="2">
+        </Grid>-->
+        <Grid x:Name="MainContent" Grid.Row="1">
             <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>
     </Grid>

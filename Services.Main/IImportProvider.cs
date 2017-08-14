@@ -1,11 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using Database.Models;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Core.Domain.Models;
 
 namespace Services.Main
 {
     public interface IImportProvider
     {
-        Task<ObservableCollection<Transaction>> ImportAsync(string path);
+        Task<Account> ImportAsync(string path);
     }
 }

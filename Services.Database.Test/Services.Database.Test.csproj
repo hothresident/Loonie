@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}</ProjectGuid>
+    <ProjectGuid>{AD2E9BA1-C5A4-4B6A-97BE-3EBC4E04BF1E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Infrastructure.Common.Test</RootNamespace>
-    <AssemblyName>Infrastructure.Common.Test</AssemblyName>
+    <RootNamespace>Services.Database.Test</RootNamespace>
+    <AssemblyName>Services.Database.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,28 +50,32 @@
     <Reference Include="Should, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Should.1.1.20\lib\Should.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap, Version=4.4.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StructureMap.4.4.5\lib\net45\StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EarcastRegistryShould.cs" />
-    <Compile Include="Builders\MapperBuilder.cs" />
+    <Compile Include="Models\TransactionProfileShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Domain\Core.Domain.csproj">
+      <Project>{c588c044-2896-42a9-b90b-b9340a742165}</Project>
+      <Name>Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services.Common.Test\Services.Common.Test.csproj">
+      <Project>{DDC88975-8E9A-4C20-8D5D-79C0B765CE46}</Project>
+      <Name>Services.Common.Test</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services.Common\Services.Common.csproj">
       <Project>{C97F966F-FA81-41D8-82C8-E7ACE2A386C4}</Project>
       <Name>Services.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services.Translation\Services.Translation.csproj">
-      <Project>{87375262-1BCC-4CC5-AD40-FD81579EB76F}</Project>
-      <Name>Services.Translation</Name>
+    <ProjectReference Include="..\Services.Database\Services.Database.csproj">
+      <Project>{2426A424-0424-4DA4-9B8C-DE742369E543}</Project>
+      <Name>Services.Database</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

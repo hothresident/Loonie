@@ -1,7 +1,7 @@
-using System.Data.Entity;
 using Database.Models;
+using System.Data.Entity;
 
-namespace Infrastructure.Database
+namespace Database
 {
     public partial class LoonieContext : DbContext
     {
@@ -10,16 +10,44 @@ namespace Infrastructure.Database
         {
         }
 
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<ExpandedTransaction> ExpandedTransactions { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Transaction>()
+            modelBuilder.Entity<Account>()
+                .Property(e => e.AccountNumber)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Account>()
                 .Property(e => e.Type)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Account>()
+                .Property(e => e.Description)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Account>()
+                .HasMany(e => e.Transactions)
+                .WithRequired(e => e.Account)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Category>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ExpandedTransaction>()
+                .Property(e => e.Amount)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<ExpandedTransaction>()
+                .Property(e => e.Memo)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Transaction>()
-                .Property(e => e.AccountId)
+                .Property(e => e.Type)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Transaction>()
@@ -31,8 +59,9 @@ namespace Infrastructure.Database
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Transaction>()
-                .Property(e => e.Category)
-                .IsUnicode(false);
+                .HasMany(e => e.ExpandedTransactions)
+                .WithRequired(e => e.Transaction)
+                .WillCascadeOnDelete(false);
         }
     }
 }

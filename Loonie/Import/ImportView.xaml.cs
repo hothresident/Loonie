@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Loonie.Transactions
+namespace Loonie.Import
 {
     /// <summary>
-    /// Interaction logic for TransactionView.xaml
+    /// Interaction logic for AccountView.xaml
     /// </summary>
-    public partial class TransactionView : UserControl
+    public partial class ImportView : UserControl
     {
-        public TransactionView()
+        public ImportView()
         {
             InitializeComponent();
         }

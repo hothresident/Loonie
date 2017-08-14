@@ -1,11 +1,10 @@
-﻿using Core.Domain.Models;
-using System.Collections.Generic;
+﻿using Database.Models;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Translation
 {
     public interface ITranslationFacade
     {
-        Task<List<Transaction>> ParseFileAsync(string path, int index);
+        Task<Account> ParseFileAsync(string path, int index);
     }
 }

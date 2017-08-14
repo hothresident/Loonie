@@ -51,6 +51,10 @@
       <Project>{C588C044-2896-42A9-B90B-B9340A742165}</Project>
       <Name>Core.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Services.Database\Services.Database.csproj">
+      <Project>{2426A424-0424-4DA4-9B8C-DE742369E543}</Project>
+      <Name>Services.Database</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,5 @@
 ﻿using Core.Domain.Enums;
-using Core.Domain.Models;
+using Database.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,23 +10,27 @@ namespace Infrastructure.Translation.Parsers
 {
     public static class QifParser
     {
-        public static IEnumerable<Transaction> Parse(string path)
+        public static Account Parse(string path)
         {
             var file = FileReader.Read(path);
 
             var records = file.Substring(file.IndexOf("<STMTTRN>"))
                 .Split(new string[] { "<STMTTRN>" }, System.StringSplitOptions.RemoveEmptyEntries);
 
-            var accountId = file.Parse("ACCTID").Trim();
-
-            return records.Select(r => new Transaction
+            var account = new Account
             {
-                AccountId = accountId,
-                Amount = decimal.Parse(r.Parse("TRNAMT")),
-                Memo = r.Parse("NAME").Trim(),
-                Type = (TransactionType)Enum.Parse(typeof(TransactionType), r.Parse("TRNTYPE").ToTitleCase()),
-                Date = r.Parse("DTPOSTED").ParseDate()
-            });
+                AccountNumber = file.Parse("ACCTID").Trim(),
+                Transactions = records.Select(r => new Transaction
+                {
+                    Amount = decimal.Parse(r.Parse("TRNAMT")),
+                    Memo = r.Parse("NAME").Trim(),
+                    //Type = (TransactionType)Enum.Parse(typeof(TransactionType), r.Parse("TRNTYPE").ToTitleCase()),
+                    Type =  r.Parse("TRNTYPE").ToTitleCase(),
+                    DatePosted = r.Parse("DTPOSTED").ParseDate(),
+                }).ToList()
+            };
+
+            return account;
         }
 
         private static string Parse(this string source, string searchString)

@@ -1,5 +1,5 @@
-﻿using Core.Domain.Models;
-using Infrastructure.Database;
+﻿using Database.Models;
+using Database.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -7,21 +7,41 @@ namespace Services.Main
 {
     public class DatabaseProvider : IDatabaseProvider
     {
-        private IRepository _repository;
+        private ITransactionRepository _transactionRepository;
+        private IAccountRepository _accountRepository;
 
-        public DatabaseProvider(IRepository repository)
+        public DatabaseProvider(ITransactionRepository transactionRepository, 
+            IAccountRepository accountRepository)
         {
-            _repository = repository;
+            _transactionRepository = transactionRepository;
+            _accountRepository = accountRepository;
         }
 
-        public async Task Save(IEnumerable<Transaction> transactions)
+        //public async Task SaveTransactions(IEnumerable<Transaction> transactions)
+        //{
+        //    await _repository.Save(transactions);
+        //}
+
+        //public async Task<List<Transaction>> GetTransactionsAsync()
+        //{
+        //    return new List<Transaction>(await _repository.GetAsync());
+        //}
+
+        public async Task<List<Account>> GetAccountsAsync()
         {
-            await _repository.Save(transactions);
+            return new List<Account>(
+                await _accountRepository.GetAccountsAsync());
         }
 
-        public async Task<List<Transaction>> GetAsync()
+        public async Task<List<Transaction>> GetTransactionsAsync()
         {
-            return new List<Transaction>(await _repository.GetAsync());
+            return new List<Transaction>(
+                await _transactionRepository.GetTransactionsAsync());
+        }
+
+        public async Task AddAccount(Account account)
+        {
+            await _accountRepository.AddAccountAsync(account);
         }
     }
 }
