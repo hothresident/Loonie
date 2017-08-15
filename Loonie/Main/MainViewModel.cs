@@ -1,13 +1,7 @@
 ﻿using Database.Models;
-using Services.Main;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Controls;
-using System.Linq;
 using Database.Repositories;
 using System;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Loonie.Main
 {
@@ -15,7 +9,6 @@ namespace Loonie.Main
     {
         private IAccountRepository _accountRepository;
         private ITransactionRepository _transactionRepository;
-        //private IMapper _mapper;
 
         private Account _selectedAccount;
         public Account SelectedAccount
@@ -24,7 +17,7 @@ namespace Loonie.Main
             set
             {
                 _selectedAccount = value;
-                OnSelectAccount(_selectedAccount);
+                OnSelectAccount();
             }
         }
 
@@ -42,33 +35,23 @@ namespace Loonie.Main
             set { SetProperty(ref _transactions, value); }
         }
 
-        //public RelayCommand ExitCommand { get; private set; }
         public RelayCommand ImportCommand { get; private set; }
         public RelayCommand SaveCommand { get; private set; }
-        public RelayCommand<Account> EditAccountCommand { get; private set; }
-        //public RelayCommand<Account> SelectAccountCommand { get; private set; }
-
-        //public event Action<Account> EditAccountRequested = delegate { };
-        //public event Action<Account> SelectAccountRequested = delegate { };
+        public RelayCommand EditAccountCommand { get; private set; }
+        public RelayCommand SelectAllAccountsCommand { get; private set; }
 
         public MainViewModel()
         {
-            //NavCommand = new RelayCommand<string>(OnNav);
-
             _accountRepository = ContainerHelper.Container.GetInstance<IAccountRepository>();
             _transactionRepository = ContainerHelper.Container.GetInstance<ITransactionRepository>();
-            //_mapper = ContainerHelper.Container.GetInstance<IMapper>();
 
-            //ExitCommand = new RelayCommand(OnExit, CanExit);
-            //ImportCommand = new RelayCommand(OnImport);
-            //SaveCommand = new RelayCommand(OnSaveAsync);
-            //EditAccountCommand = new RelayCommand<Account>(OnEditAccount);
-            //SelectAccountCommand = new RelayCommand<Account>(OnSelectAccount);
+            //EditAccountCommand = new RelayCommand(OnEditAccount);
+            SelectAllAccountsCommand = new RelayCommand(OnSelectAllAccounts);
 
-            Refresh();
+            LoadAccountsAndTransactions();
         }
 
-        private async void Refresh()
+        private async void LoadAccountsAndTransactions()
         {
             Accounts = new ObservableCollection<Account>(
                 await _accountRepository.GetAccountsAsync());
@@ -76,40 +59,17 @@ namespace Loonie.Main
                 await _transactionRepository.GetTransactionsAsync());
         }
 
-        //private async void ImportAsync(string path)
-        //{
-        //    if (DesignerProperties.GetIsInDesignMode(new DependencyObject())) return;
-
-        //    Account = await _importProvider.ImportAsync(path);
-        //    Transactions = new ObservableCollection<Transaction>(Account.Transactions);
-        //    //var databaseTransactionIndex = await _repository.GetTransactionIndexAsync();
-        //    //Transactions = new ObservableCollection<Transaction>(await _adapter.ParseFileAsync(@"c:\discover.qfx", databaseTransactionIndex));
-        //}
-
-        //private async void OnSaveAsync()
-        //{
-        //    await _databaseProvider.AddAccount(new Account
-        //    {
-        //        AccountNumber = Account.AccountNumber,
-        //        Type = "Credit",
-        //        Description = "y",
-        //        Transactions = new List<Transaction>(Transactions)
-        //    });
-        //    Refresh();
-        //}
-
-        //private void OnImport()
-        //{
-        //    OpenFileDialog openFileDialog = new OpenFileDialog();
-        //    openFileDialog.ShowDialog();
-        //    ImportAsync(openFileDialog.FileName);
-        //}
-
-        private async void OnSelectAccount(Account account)
+        private async void OnSelectAccount()
         {
             Transactions = new ObservableCollection<Transaction>(
                 await _transactionRepository.GetTransactionsForAccountAsync(
-                    Convert.ToInt32(account.Id)));
+                    Convert.ToInt32(_selectedAccount.Id)));
+        }
+
+        private async void OnSelectAllAccounts()
+        {
+            Transactions = new ObservableCollection<Transaction>(
+                await _transactionRepository.GetTransactionsAsync());
         }
     }
 }

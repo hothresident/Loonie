@@ -59,5 +59,34 @@ namespace Loonie.Import
                 Transactions = new List<Transaction>(Transactions)
             });
         }
+
+        //private async void ImportAsync(string path)
+        //{
+        //    if (DesignerProperties.GetIsInDesignMode(new DependencyObject())) return;
+
+        //    Account = await _importProvider.ImportAsync(path);
+        //    Transactions = new ObservableCollection<Transaction>(Account.Transactions);
+        //    //var databaseTransactionIndex = await _repository.GetTransactionIndexAsync();
+        //    //Transactions = new ObservableCollection<Transaction>(await _adapter.ParseFileAsync(@"c:\discover.qfx", databaseTransactionIndex));
+        //}
+
+        //private async void OnSaveAsync()
+        //{
+        //    await _databaseProvider.AddAccount(new Account
+        //    {
+        //        AccountNumber = Account.AccountNumber,
+        //        Type = "Credit",
+        //        Description = "y",
+        //        Transactions = new List<Transaction>(Transactions)
+        //    });
+        //    Refresh();
+        //}
+
+        //private void OnImport()
+        //{
+        //    OpenFileDialog openFileDialog = new OpenFileDialog();
+        //    openFileDialog.ShowDialog();
+        //    ImportAsync(openFileDialog.FileName);
+        //}
     }
 }
